@@ -1,4 +1,5 @@
 class Phrase
+  # 正規表現
   attr_reader :word
 
   def initialize(words)
