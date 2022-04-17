@@ -1,4 +1,7 @@
 class Clock
+  # オブジェクトの比較を定義するために導入
+  include Comparable
+
   MINUTES_PER_HOUR = 60
   HOURS_PER_DAY = 24
   MINUTES_PER_DAY = MINUTES_PER_HOUR * HOURS_PER_DAY
@@ -29,5 +32,10 @@ class Clock
   def -(other)
     @total_minutes -= other.total_minutes
     to_s
+  end
+
+  def <=>(other)
+    other.is_a?(Clock)
+    total_minutes <=> other.total_minutes
   end
 end
