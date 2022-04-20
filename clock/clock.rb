@@ -25,17 +25,14 @@ class Clock
   end
 
   def +(other)
-    @total_minutes += other.total_minutes
-    to_s
+    Clock.new(minute: @total_minutes + other.total_minutes).to_s
   end
 
   def -(other)
-    @total_minutes -= other.total_minutes
-    to_s
+    Clock.new(minute: @total_minutes - other.total_minutes).to_s
   end
 
   def <=>(other)
-    other.is_a?(Clock)
     total_minutes <=> other.total_minutes
   end
 end
