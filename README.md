@@ -381,3 +381,16 @@ Class Clock
 	end
 end
 ```
+
+# rna_transcription
+- 文字列の置換
+- `trメソッド`
+
+```ruby
+  DNA = 'CATG'
+  RNA = 'GUAC'
+
+  def self.of_dna(nucleotides)
+    nucleotides.tr(DNA, RNA)
+  end
+```
