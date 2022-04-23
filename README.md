@@ -459,5 +459,19 @@ String.gsub(' ', '')
 
 ### 数値が正であるか確認する
 - `positive?`で確認できる
+
 #### 参考記事
 [Numeric#positive? (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Numeric/i/positive=3f.html)
+
+
+# difference_of_squares
+- 配列から組み合わせのネストした配列を作成する
+- combination
+
+```ruby
+  def difference
+    (1..num).to_a.combination(2).to_a.sum { |num| num[0] * num[1] } * 2
+  end
+```
+#### 参考記事
+[Ruby Arrayの組み合わせ系メソッドまとめ - Qiita](https://qiita.com/shshimamo/items/5a458ecc88e7c24d5112)
