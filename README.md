@@ -425,3 +425,39 @@ String.gsub(' ', '')
     define_method('on_' + planet.to_s) { seconds.to_f / (EARTH_YEAR_SECONDS * orbital_period) }
   end
 ```
+
+# Triangle
+### 前提条件をprivate メソッドとして定義する
+- 今回の場合は、三角形の成立条件を先に確認しておく
+``` ruby
+  private
+
+  def triangle?
+    side_length.all?(&:positive?) && side_length[2] <= side_length[0] + side_length[1]
+  end
+```
+
+### 配列の全ての要素のcheckする
+- `Array.all?{}`で確認することができる
+- 全ての要素が真である場合に `true`を返す。偽である要素があれば、直ちに`false`を返す。
+
+
+```ruby
+  def triangle?
+    side_length.all?(&:positive?) && side_length[2] <= side_length[0] + side_length[1]
+  end
+```
+#### 参考記事
+[Enumerable#all? (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Enumerable/i/all=3f.html)
+
+### 該当する要素が存在するか確認する
+- `Array.ani?{}`で確認する
+- 全ての要素が全て偽である場合に偽を返す。真である要素があれば直ちに`true`を返す。
+
+#### 参考記事
+[Enumerable#any? (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Enumerable/i/any=3f.html)
+
+### 数値が正であるか確認する
+- `positive?`で確認できる
+#### 参考記事
+[Numeric#positive? (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Numeric/i/positive=3f.html)
