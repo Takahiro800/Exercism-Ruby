@@ -394,3 +394,21 @@ end
     nucleotides.tr(DNA, RNA)
   end
 ```
+
+# Pangram
+### 文字列の空白を削除したい
+```ruby
+String.gsub(' ', '')
+```
+
+### a,b,c,...,zの配列を作りたい
+```ruby
+('a'..'z').to_a
+```
+
+### 配列が他の配列を含むか確認したい
+``` ruby
+(sentence.downcase.gsub(' ', '').split('').uniq & ('a'..'z').to_a).size
+```
+参考記事
+[Ruby—配列が別配列の要素を含むかどうかを判定する (配列同士を比較する) - Qiita](https://qiita.com/YumaInaura/items/e597f0a82e1979c9d38f)
