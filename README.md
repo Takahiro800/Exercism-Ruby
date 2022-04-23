@@ -400,11 +400,15 @@ end
 ```ruby
 String.gsub(' ', '')
 ```
+参考記事
+[文字列中に存在する必要のない空白を削除する方法 - Qiita](https://qiita.com/ntakuya/items/1153940f3e9c6282b4c5)
 
 ### a,b,c,...,zの配列を作りたい
 ```ruby
 ('a'..'z').to_a
 ```
+参考記事
+[アルファベットの配列つくる - Qiita](https://qiita.com/7kaji/items/6e8a38901a5382f03db3)
 
 ### 配列が他の配列を含むか確認したい
 ``` ruby
@@ -412,3 +416,12 @@ String.gsub(' ', '')
 ```
 参考記事
 [Ruby—配列が別配列の要素を含むかどうかを判定する (配列同士を比較する) - Qiita](https://qiita.com/YumaInaura/items/e597f0a82e1979c9d38f)
+
+### Space Age
+- 定数をハッシュで複数定義する
+- each文でメソッドを定義する
+```ruby
+  ORBITAL_PERIODS_IN_EARTH_YEARS.each do |planet, orbital_period|
+    define_method('on_' + planet.to_s) { seconds.to_f / (EARTH_YEAR_SECONDS * orbital_period) }
+  end
+```
