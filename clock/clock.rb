@@ -8,7 +8,7 @@ class Clock
 
   attr_reader :total_minutes
 
-  def initialize(hour: 00 , minute: 00)
+  def initialize(hour: 00, minute: 00)
     @total_minutes = (hour * MINUTES_PER_HOUR + minute) % MINUTES_PER_DAY
   end
 
@@ -21,15 +21,15 @@ class Clock
   end
 
   def to_s
-    "%02d:%02d" %[hour, minute]
+    '%02d:%02d' % [hour, minute]
   end
 
   def +(other)
-    Clock.new(minute: @total_minutes + other.total_minutes).to_s
+    Clock.new(minute: @total_minutes + other.total_minutes)
   end
 
   def -(other)
-    Clock.new(minute: @total_minutes - other.total_minutes).to_s
+    Clock.new(minute: @total_minutes - other.total_minutes)
   end
 
   def <=>(other)
