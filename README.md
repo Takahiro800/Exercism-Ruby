@@ -499,3 +499,13 @@ String.gsub(' ', '')
 ```
 #### 参考記事
 [Rubyの関数の引数では可変長引数と可変長キーワード引数で便利な使い方ができる - コード日進月歩](https://shinkufencer.hateblo.jp/entry/2018/09/15/230150)
+
+# Transpose
+- 文字列の先頭、末尾の空白を削除する
+`lstrip`, `rstrip`
+#### 参考記事
+[空白文字を取り除く - 文字列(String)クラス - Ruby入門](https://www.javadrive.jp/ruby/string_class/index11.html#:~:text=%E6%96%87%E5%AD%97%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%E3%82%84,strip%E3%80%8D%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%82%92%E4%BD%BF%E3%81%84%E3%81%BE%E3%81%99%E3%80%82&text=%E5%85%88%E9%A0%AD%E3%81%A8%E6%9C%AB%E5%B0%BE%E3%81%AE%E7%A9%BA%E7%99%BD,%E3%80%8D%E3%80%8C%C2%A5v%E3%80%8D%E3%81%A7%E3%81%99%E3%80%82)
+
+# Armstrong Numbers
+- 引数を基数として数値を配列で返す
+[Integer#digits (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Integer/i/digits.html)
