@@ -488,3 +488,14 @@ String.gsub(' ', '')
 
 #### 参考記事
 [【Ruby】Array から Hash を作る方法７選（a.k.a. やっぱり Array#zip はかわいいよ） | Raksul ENGINEERING](https://tech.raksul.com/2018/02/06/ruby_array_to_hash/)
+
+# Sum of Multiples
+### 可変長引数を配列として受け取る
+- 引数の先頭に`*`をつけて定義する
+``` ruby
+  def initialize(*list)
+    @list = list
+  end
+```
+#### 参考記事
+[Rubyの関数の引数では可変長引数と可変長キーワード引数で便利な使い方ができる - コード日進月歩](https://shinkufencer.hateblo.jp/entry/2018/09/15/230150)
