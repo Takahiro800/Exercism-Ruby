@@ -475,3 +475,16 @@ String.gsub(' ', '')
 ```
 #### 参考記事
 [Ruby Arrayの組み合わせ系メソッドまとめ - Qiita](https://qiita.com/shshimamo/items/5a458ecc88e7c24d5112)
+
+# Anagram
+- 配列を繰り返し処理でHashを作成する
+	- 長さが２の配列に対して、`to_h`メソッドをつかう
+```ruby
+  def return_hash(word)
+    word_arr = word.downcase.chars.map
+    word_arr.map { |char| [char, word_arr.count(char)] }.to_h
+  end
+```
+
+#### 参考記事
+[【Ruby】Array から Hash を作る方法７選（a.k.a. やっぱり Array#zip はかわいいよ） | Raksul ENGINEERING](https://tech.raksul.com/2018/02/06/ruby_array_to_hash/)
