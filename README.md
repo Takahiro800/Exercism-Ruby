@@ -518,6 +518,7 @@ String.gsub(' ', '')
 	- `\D` ... 数字以外
 	- `{n,m}` ... 直前の文字やパターンをn回以上m回以下連続する
 	- `$` ... 行末を表す
+[基本的な正規表現一覧 | murashun.jp](https://murashun.jp/article/programming/regular-expression.html)
 
 
 # Grains
