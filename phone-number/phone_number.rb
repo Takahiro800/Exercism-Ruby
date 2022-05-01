@@ -7,7 +7,9 @@ class PhoneNumber
           ')',
       )
 
-    return self.delete_country_code(num)
+    num = self.delete_country_code(num)
+    return nil if num.length != 10 || !((2..9).include?(num[0].to_i) && (2..9).include?(num[3].to_i))
+    return num
   end
 
   private
@@ -18,10 +20,6 @@ class PhoneNumber
     elsif num.length == 12 && num[0..1] == '+1'
       num = num[2..]
     end
-
-    return nil if num.length != 10
-    return nil unless (2..9).include?(num[0].to_i)
-    return nil unless (2..9).include?(num[3].to_i)
     return num
   end
 end
