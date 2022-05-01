@@ -518,3 +518,12 @@ String.gsub(' ', '')
 	- `\D` ... 数字以外
 	- `{n,m}` ... 直前の文字やパターンをn回以上m回以下連続する
 	- `$` ... 行末を表す
+
+
+# Grains
+- デフォルト引数
+``` ruby
+  def self.total(squares = 64)
+    return 2**squares - 1
+  end
+```
