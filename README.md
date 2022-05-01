@@ -509,3 +509,12 @@ String.gsub(' ', '')
 # Armstrong Numbers
 - 引数を基数として数値を配列で返す
 [Integer#digits (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Integer/i/digits.html)
+
+# Phone Number
+- 正規表現について学習
+	- `\`で囲むことによって正規表現を実装
+	- `^` ... 先頭の文字を指定する
+	- `\d` ... 数字
+	- `\D` ... 数字以外
+	- `{n,m}` ... 直前の文字やパターンをn回以上m回以下連続する
+	- `$` ... 行末を表す
