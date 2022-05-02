@@ -528,3 +528,15 @@ String.gsub(' ', '')
     return 2**squares - 1
   end
 ```
+
+# Resistor Color Trio
+- 配列展開
+```ruby
+	colors = %w[red green yellow]
+    c1, c2, c3 = colors
+```
+- 複数の要素が全て配列に含まれるか確認したい
+```ruby
+	colors = %w[red green yellow]
+    raise ArgumentError unless (@colors - COLOR_TO_VALUE.keys).empty?
+```

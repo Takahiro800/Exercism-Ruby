@@ -13,11 +13,11 @@ class ResistorColorTrio
   }
 
   def initialize(colors)
+    raise ArgumentError unless (colors - COLOR_TO_VALUE.keys).empty?
     @colors = colors
   end
 
   def label
-    raise ArgumentError unless (@colors - COLOR_TO_VALUE.keys).empty?
     c1, c2, c3 = @colors
     value = 'Resistor value: ' + COLOR_TO_VALUE[c1] + COLOR_TO_VALUE[c2] + change_num(c3)
     return select_unit(value)
