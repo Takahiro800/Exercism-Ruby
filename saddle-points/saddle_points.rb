@@ -13,10 +13,10 @@ class Matrix
   end
 
   def saddle_points
-    ans = []
-    (0...rows.size).each do |i|
-      (0...columns.size).each { |j| ans << [i, j] if @nums[i][j] == rows[i].max && @nums[i][j] == columns[j].min }
+    res = []
+    rows.each_with_index do |row, i|
+      columns.each_with_index { |col, j| res << [i, j] if row[j] == row.max && col[i] == col.min }
     end
-    return ans
+    res
   end
 end
