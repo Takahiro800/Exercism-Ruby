@@ -552,3 +552,12 @@ String.gsub(' ', '')
 
 ### 新しいオブジェクトに対して関数型っぽく処理する
 [Enumerable#each_with_object (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Enumerable/i/each_with_object.html)
+
+# Nucleotide Count
+### Hash#fetch
+- 基本は`Hash#[]`と同じ。keyが存在しない場合の挙動が異なる
+  - `Hash#[]`はnilを返す
+  - `Hash#fetch`は例外が発生する
+- `Hash#fetch`はデフォルト値を指定することができる
+  - 第二引数に指定する。keyが存在しない場合は、このデフォルト値を返す.
+[Ruby の Hash#fetch が便利 - Qiita](https://qiita.com/siman/items/c3918c6c29770805373d)
