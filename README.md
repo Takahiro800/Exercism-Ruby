@@ -540,3 +540,15 @@ String.gsub(' ', '')
 	colors = %w[red green yellow]
     raise ArgumentError unless (@colors - COLOR_TO_VALUE.keys).empty?
 ```
+
+# ETL
+- hashのkey, valueを入れ替える
+- `invert`
+[[Ruby] 便利な組み込みクラスのメソッド達（Hash編） - Qiita](https://qiita.com/kidach1/items/651b5b5580be40ad047e)
+
+### hashの要素を削除
+- `delete(key)`
+- [Hash#delete (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Hash/i/delete.html)
+
+### 新しいオブジェクトに対して関数型っぽく処理する
+[Enumerable#each_with_object (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Enumerable/i/each_with_object.html)
