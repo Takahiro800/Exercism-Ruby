@@ -588,3 +588,23 @@ String.gsub(' ', '')
 ### 関数型のsumっぽく積を求める
 - `.inject(:*)`を使う
 [Ruby 配列内での掛け算 - Qiita](https://qiita.com/mat827/items/7bb9649d4f79a1c45014)
+
+# Collatz Conjecture
+- 三項演算子
+```ruby
+    n.odd? ? steps_helper(3 * n + 1, count + 1) : steps_helper(n / 2, count + 1)
+```
+### enum_for
+- 引数に指定したメソッドを繰り返す？
+```ruby
+class CollatzConjecture
+  def self.steps(num)
+    raise ArgumentError, num if num < 1
+    enum_for(:each, num).count
+  end
+
+  def self.each(num)
+    yield num = num.even? ? num / 2 : 3 * num + 1 until num == 1
+  end
+end
+```
