@@ -561,3 +561,30 @@ String.gsub(' ', '')
 - `Hash#fetch`はデフォルト値を指定することができる
   - 第二引数に指定する。keyが存在しない場合は、このデフォルト値を返す.
 [Ruby の Hash#fetch が便利 - Qiita](https://qiita.com/siman/items/c3918c6c29770805373d)
+
+# Pythagorean Triplet
+### 配列の中から指定個数の要素の組み合わせるを作成する
+```ruby
+      (min_factor..max_factor)
+        .to_a
+        .combination(3)
+        .each_with_object([]) do |combination, triplets|
+          triplet = Triplet.new(*combination)
+          triplets << triplet if triplet.pythagorean? && (sum.nil? || triplet.sum == sum)
+        end
+```
+[Array#repeated_combination (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Array/i/repeated_combination.html)
+[Ruby Arrayの組み合わせ系メソッドまとめ - Qiita](https://qiita.com/shshimamo/items/5a458ecc88e7c24d5112)
+
+### 引数にデフォルト値を設定する(ハッシュで定義する)
+- nilも明記する
+- 必須の値を先に指定する
+```ruby
+  def self.where(max_factor:, min_factor: 1, sum: nil)
+  end
+```
+[ruby引数処理に使えるテクニック - Qiita](https://qiita.com/metheglin/items/306e81c95f8a5cdea296)
+
+### 関数型のsumっぽく積を求める
+- `.inject(:*)`を使う
+[Ruby 配列内での掛け算 - Qiita](https://qiita.com/mat827/items/7bb9649d4f79a1c45014)
