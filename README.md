@@ -608,3 +608,27 @@ class CollatzConjecture
   end
 end
 ```
+# Proverb
+### ヒアドキュメントの使い方
+[Rubyのヒアドキュメントの書き方いろいろ - Hack Your Design!](https://blog.toshimaru.net/ruby-heredoc/#%E8%AD%98%E5%88%A5%E5%AD%90-1)
+### 配列から連続する要素の組み合わせを取得する
+- `Array#each_cons(n)`を使う
+```ruby
+def to_s
+	@words
+		.each_cons(2)
+		.map { |lacked_item, jeopardised_item| "For want of a #{lacked_item} the #{jeopardised_item} was lost." }
+		.push("And all for the want of a #{qualifier} #{@words.first}.".squeeze(' '))
+		.join("\n")
+end
+```
+[Enumerable#each_cons (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Enumerable/i/each_cons.html)
+
+### 連続する半角スペースを一つにまとめる
+- `String.squeeze()`を使う
+
+```ruby
+		.push("And all for the want of a #{qualifier} #{@words.first}.".squeeze(' '))
+```
+- @qualifierがnilの時に、半角スペースが連続するのを一つにまとめた
+[String#squeeze (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/String/i/squeeze.html)
