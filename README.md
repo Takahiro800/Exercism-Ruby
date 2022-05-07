@@ -632,3 +632,11 @@ end
 ```
 - @qualifierがnilの時に、半角スペースが連続するのを一つにまとめた
 [String#squeeze (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/String/i/squeeze.html)
+
+# Accumulate
+- yieldについて
+  - 引数に渡されたブロックをメソッド内で活用することができる
+  - 引数にブロックが渡されたかどうかは `block_given?` で確認することができる
+- ブロックとは？
+  - `{}`で囲まれた部分のこと `do end`でも良い
+[Rubyのyieldって結局何なの？｜よしだ｜note](https://note.com/yoshidaa_tech/n/ne6f9799eadf4)
