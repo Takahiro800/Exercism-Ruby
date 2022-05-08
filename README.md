@@ -640,3 +640,54 @@ end
 - ブロックとは？
   - `{}`で囲まれた部分のこと `do end`でも良い
 [Rubyのyieldって結局何なの？｜よしだ｜note](https://note.com/yoshidaa_tech/n/ne6f9799eadf4)
+
+# Bob
+### 固定のテキストをHashにして整理する
+```ruby
+  Response = {
+    silence: 'Fine. Be that way!',
+    yelling: 'Whoa, chill out!',
+    asking: 'Sure.',
+    statement: 'Whatever.',
+    asking_loudly: "Calm down, I know what I'm doing!",
+  }
+```
+### ProcオブジェクトとLambdaについて
+-　Procクラスはブロックをオブジェクト化するためのクラス。
+	```ruby
+	# "Hello!"という文字列を返すProcオブジェクトを作成する
+	hello_proc = Proc.new do
+		'Hello!'
+	end
+	# do...endの代わりに{}を使っても良い
+	hello_proc = Proc.new {'Hello!'}
+	```
+- Procオブジェクトを実行するためにはcallメソッド
+	```ruby
+	hello_proc.call #=> "Hello!"
+	```
+- 実行時に引数を利用するオブジェクトも定義できる
+	```ruby
+	add_proc = Proc.new{ |a,b| a + b}
+	add_proc.call(10,20) #=> 30
+	```
+- デフォルト値をつけることもできる
+	```ruby
+	add_proc = Proc.new{ |a = 0, b = 0| a + b }
+	add_proc.call #=> 0
+	add_proc.call(10) #=> 10
+	add_proc.call(10,20) #=> 30
+	```
+- Procオブジェクトを作成する場合は、`Proc.new`だけでなく、Kernelモジュールのprocメソッドを使うこともできる
+	```ruby
+	add_proc = proc {|a,b| a + b}
+	```
+### Procオブジェクトを作成する方法
+1. Procクラスの利用
+   - `Proc.new {|a,b| a+b]`
+1. Kernelモジュールのprocメソッドを利用
+   - `proc {|a,b| a+b]}`
+1. -> 構文
+   - `->(a,b) {|a,b| a + b}`
+1. lambdaメソッド
+   -　`lambda {|a,b| a + b}`

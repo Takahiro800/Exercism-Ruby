@@ -1,44 +1,39 @@
-require 'set'
-
 class Bob
-  def self.hey(sentence)
-    sentence.gsub!(' ', '')
+  Response = {
+    silence: 'Fine. Be that way!',
+    yelling: 'Whoa, chill out!',
+    asking: 'Sure.',
+    statement: 'Whatever.',
+    asking_loudly: "Calm down, I know what I'm doing!",
+  }
+  Silence = ->(t) { t.gsub(/\s/, '').empty? }
+  Asking = ->(t) { t =~ /\?\z/ }
+  Yelling = ->(t) { t == t.upcase && t =~ /[A-Z]/ }
+  AskingLoudly = ->(t) { Asking[t] && Yelling[t] }
 
-    return 'Fine. Be that way!' if sentence.empty?
-    if is_question?(sentence) && (sentence.split('') - ('A'..'Z').to_a - %w[! ' ? % ^ * @ \ # $ ( *]).empty?
-      return "Calm down, I know what I'm doing!"
-    end
+  def self.hey(text)
+    Bob.new.hey(text)
+  end
 
-    return 'Whoa, chill out!' if is_only_capitals?(sentence)
-
-    return 'Sure.' if is_question?(sentence)
-
-    if Set[
-         *(
-           sentence.split('') - ('A'..'Z').to_a - ('a'..'z').to_a -
-             %w[: ! ' ? % ^ * @ \ # $ ( * . , 1 2 3 4 5 6 7 8 9 - )] - (1..9).to_a
-         ).uniq
-       ] == Set["\t", "\n", "\r"]
-      return 'Fine. Be that way!'
-    end
-    if Set[
-         *(
-           sentence.split('') - ('A'..'Z').to_a - ('a'..'z').to_a -
-             %w[: ! ' ? % ^ * @ \ # $ ( * . , 1 2 3 4 5 6 7 8 9 - )] - (1..9).to_a
-         ).uniq
-       ] == Set["\t"]
-      return 'Fine. Be that way!'
-    end
-    return 'Whatever.'
+  def hey(text)
+    @phrase = text
+    Response[statement_style]
   end
 
   private
 
-  def self.is_only_capitals?(sentence)
-    sentence == sentence.upcase && sentence.downcase != sentence.upcase
-  end
-
-  def self.is_question?(sentence)
-    sentence[-1] == '?'
+  def statement_style
+    case @phrase.strip
+    when AskingLoudly
+      :asking_loudly
+    when Yelling
+      :yelling
+    when Silence
+      :silence
+    when Asking
+      :asking
+    else
+      :statement
+    end
   end
 end
