@@ -699,3 +699,6 @@ end
 1. boolの配列 `is_prime`を用意
 2. is_prime[0], is_prime[1]をfalse
 3. for文で is_prime[i]がtrueならそれは素数。i*2以上のiの倍数jについて `is_prime[j] = false`と変換する
+
+# Protein-translation
+`to_sym`でStringをシンボルに変換できる
