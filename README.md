@@ -702,3 +702,7 @@ end
 
 # Protein-translation
 `to_sym`でStringをシンボルに変換できる
+
+# allergies
+- `map.with_index`
+- `Array#include?`
