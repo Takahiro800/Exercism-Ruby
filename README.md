@@ -706,3 +706,37 @@ end
 # allergies
 - `map.with_index`
 - `Array#include?`
+
+# Rail-Fence-cipher
+### クラスメソッドをprivateにしたい
+- `private_class_method` を使う
+
+```ruby
+  def self.zigzag(num, size)
+    pattern = (0..num - 1).to_a + (1..num - 2).to_a.reverse
+    pattern.cycle.first(size).zip(0..size)
+  end
+
+  private_class_method :zigzag
+```
+
+### Array#cycle
+- 配列の全要素をn回(nilの場合は無限回)繰り返しブロックを呼び出す
+- ブロックを省略した場合は Enumerator を返す。
+ref: [Array#cycle (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Array/i/cycle.html)
+
+### Enumerable#first
+- Enumerable オブジェクトの最初の要素、もしくは最初の n 要素を返します。
+- Enumerable オブジェクトが空の場合、引数を指定しない形式では nil を返します。引数を指定する形式では、空の配列を返します。
+ref: [Enumerable#first (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Enumerable/i/first.html)
+
+### Array#zip
+- 自身と引数に渡した配列の各要素からなる配列の配列を生成して返す。生成される配列の要素数は`self`の要素数と同じ
+- ブロック付きで呼び出したい場合は、`self`と引数に渡した配列の各要素を順番にブロックに渡す
+
+```ruby
+  def self.zigzag(num, size)
+    pattern = (0..num - 1).to_a + (1..num - 2).to_a.reverse
+    pattern.cycle.first(size).zip(0..size)
+  end
+```
