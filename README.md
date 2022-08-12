@@ -740,3 +740,17 @@ ref: [Enumerable#first (Ruby 3.1 リファレンスマニュアル)](https://doc
     pattern.cycle.first(size).zip(0..size)
   end
 ```
+
+# Run Length Encodign
+### String#gsub
+- `gsub(pattern) {|matched| ...} -> String`
+  - 文字列中でパターンにマッチした部分を順番にブロックに渡し、その実行結果で置き換えた文字列を生成して返す
+[String#gsub (Ruby 3.1 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/String/i/gsub.html)
+
+### 正規表現
+- `\1`
+  - `()` で囲んだ正規表現にマッチした文字列(グループ)を参照することができる `\`の後の数字は何番目の`()`かを指定している
+- ex) 同じ文字が２文字以上続く
+  - `(.)\1+`
+	- `.`は任意の１文字
+[とほほの正規表現入門 - とほほのWWW入門](https://www.tohoho-web.com/ex/regexp.html)
