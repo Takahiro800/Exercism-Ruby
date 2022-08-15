@@ -89,4 +89,12 @@ class Board
       line
     end
   end
+
+  private_class_method :check_size,
+                       :check_top_and_bottum,
+                       :set_board,
+                       :is_bomb?,
+                       :update_board,
+                       :update_cell,
+                       :finish_up
 end
