@@ -741,6 +741,7 @@ ref: [Enumerable#first (Ruby 3.1 リファレンスマニュアル)](https://doc
   end
 ```
 
+
 # Run Length Encodign
 ### String#gsub
 - `gsub(pattern) {|matched| ...} -> String`
@@ -754,3 +755,13 @@ ref: [Enumerable#first (Ruby 3.1 リファレンスマニュアル)](https://doc
   - `(.)\1+`
 	- `.`は任意の１文字
 [とほほの正規表現入門 - とほほのWWW入門](https://www.tohoho-web.com/ex/regexp.html)
+
+# Mine Sweeper
+### each_with_index
+### each.with_index
+
+# Robot Simulator
+### freeze
+### rotate!
+
+### 引数名をhashにする

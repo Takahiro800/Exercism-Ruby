@@ -14,7 +14,7 @@ class Board
 
     for i in 1...height
       for j in 0...width
-        next unless inp[i].chars[j] == '*'
+        next unless inp[i].chars[j] == "*"
 
         update_board(board, i, j)
       end
@@ -46,7 +46,7 @@ class Board
   end
 
   def self.is_bomb?(board, i, j)
-    board[i][j] == '*'
+    board[i][j] == "*"
   end
 
   def self.update_cell(board, i, j)
@@ -59,7 +59,7 @@ class Board
     height = board.size
     width = board[0].length
 
-    board[i][j] = '*'
+    board[i][j] = "*"
 
     # 縦
     update_cell(board, i - 1, j) if i > 1
@@ -77,13 +77,13 @@ class Board
   end
 
   def self.finish_up(board)
-    board.each { |line| line.map! { |num| num == 0 ? ' ' : num } if line.instance_of?(Array) }
+    board.each { |line| line.map! { |num| num == 0 ? " " : num } if line.instance_of?(Array) }
     board.map! do |line|
       next line unless line.instance_of?(Array)
 
       if line.instance_of?(Array)
-        line[0] = '|'
-        line[-1] = '|'
+        line[0] = "|"
+        line[-1] = "|"
         line = line.join
       end
       line
