@@ -765,3 +765,13 @@ ref: [Enumerable#first (Ruby 3.1 リファレンスマニュアル)](https://doc
 ### rotate!
 
 ### 引数名をhashにする
+
+# LocomotiveEngineer
+- 任意のキーワードを受け付けたい
+
+```ruby:locomotive_engineer.rb
+	# 任意のキーワードを引数に取る **
+  def self.add_missing_stops(routing_hash, **stops)
+    {**routing_hash, stops: [*stops.values]}
+  end
+```
