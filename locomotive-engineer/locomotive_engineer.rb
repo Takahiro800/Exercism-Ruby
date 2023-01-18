@@ -4,8 +4,8 @@ class LocomotiveEngineer
   end
 
   def self.fix_list_of_wagons(each_wagons_id, missing_wagons)
-    locomotive_id = each_wagons_id[0..1]
-    [each_wagons_id[2], *missing_wagons, *each_wagons_id[3..], *locomotive_id]
+    first, second, third, *rest = each_wagons_id
+    [third, *missing_wagons, *rest, first, second]
   end
 
   # 任意のキーワードを引数に取る **
