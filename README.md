@@ -775,3 +775,14 @@ ref: [Enumerable#first (Ruby 3.1 リファレンスマニュアル)](https://doc
     {**routing_hash, stops: [*stops.values]}
   end
 ```
+
+# SecretHandshake
+## バイナリー表記したい
+- `0b`を先頭に表記することで表現できる
+```ruby
+0b1   # 1
+0b10  # 2
+0b110 # 3
+```
+
+- Hashでキーをintegerにする　=> Arrayで問題ない
