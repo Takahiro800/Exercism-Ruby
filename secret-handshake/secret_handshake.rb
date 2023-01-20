@@ -1,16 +1,22 @@
 class SecretHandshake
-  attr_reader :bin
+  TYPES = ['wink', 'double blink', 'close your eyes', 'jump'].freeze
+
+  attr_reader :number
 
   def initialize(num)
-    @bin = num
+    @number = num
   end
 
   def commands
-    return [] unless bin.instance_of?(Integer)
+    return [] unless number.instance_of?(Integer)
 
-    secret = { 1 => 'wink', 2 => 'double blink', 4 => 'close your eyes', 8 => 'jump'  }
-    ans = secret.keys.select{ |num| (bin & num).positive? }.map!{|key| secret[key]}
+    ans = TYPES.select.with_index{ |_, index| bit_on?(index) }
+    bit_on?(4) ans.reverse : ans
+  end
 
-    (bin & 16).positive? ? ans.reverse : ans
+  private
+
+  def bit_on?(bit)
+    number & (2 ** bit) != 0
   end
 end
