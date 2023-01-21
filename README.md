@@ -786,3 +786,14 @@ ref: [Enumerable#first (Ruby 3.1 リファレンスマニュアル)](https://doc
 ```
 
 - Hashでキーをintegerにする　=> Arrayで問題ない
+
+# Atbash
+- `each_slice`
+	- n 要素ずつブロックに渡して繰り返します。
+		要素数が n で割り切れないときは、最後の回だけ要素数が減ります。
+		ブロックを省略した場合は n 要素ずつ繰り返す Enumerator を返します。
+- 正規表現 `/\W/`
+  - 非単語構成文字
+  - `\w`が、単語構成文字(a-zA-Z_0-9)
+- `tr(arr_a, arr_b)`
+	- [String#tr (Ruby 3.2 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/String/i/tr.html)
